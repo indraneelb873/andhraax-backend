@@ -6,7 +6,9 @@ const dotenv = require('dotenv');
 const path = require('path');
 
 dotenv.config();
-
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log("MongoDB Connected ✅"))
+  .catch(err => console.log("MongoDB Error ❌", err));
 const app = express();
 
 // Middleware
